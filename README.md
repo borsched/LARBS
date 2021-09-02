@@ -4,12 +4,17 @@
 
 On an Arch-based distribution as root, run the following:
 
+	curl -LO larbs.xyz/larbs.sh
+
+Change the following lines:
 ```
-curl -LO https://raw.githubusercontent.com/borsched/LARBS/master/larbs.sh
-sh larbs.sh
+[ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/borsched/voidrice.git"
+[ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/borsched/LARBS/master/progs.csv"
 ```
 
-That's it.
+Run:
+
+	sh larbs.sh
 
 ## What is LARBS?
 
