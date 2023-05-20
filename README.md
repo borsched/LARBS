@@ -9,7 +9,7 @@ On an Arch-based distribution as root, run the following:
 Change the following lines:
 ```
 [ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/borsched/voidrice.git"
-[ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/borsched/LARBS/master/progs.csv"
+[ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/borsched/LARBS/master/static/progs.csv"
 ```
 
 Run:
