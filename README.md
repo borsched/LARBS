@@ -4,17 +4,27 @@
 
 On an Arch-based distribution as root, run the following:
 
-	curl -LO larbs.xyz/larbs.sh
+Clone the repository:
 
-Change the following lines:
+	git clone https://github.com/borsched/LARBS.git
+	cd LARBS
+
+Change the following variables in `static/larbs.sh`:
 ```
-[ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/borsched/voidrice.git"
-[ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/borsched/LARBS/master/static/progs.csv"
+dotfilesrepo="https://github.com/borsched/voidrice.git"
+progsfile="https://raw.githubusercontent.com/borsched/LARBS/master/static/progs.csv"
 ```
 
-Run:
+**Note:** You can specify a branch for the dotfiles repository by appending `#branch` to the URL:
+```
+https://github.com/borsched/voidrice.git#laptop
+```
+If no branch is specified, it defaults to `master`.
 
-	sh larbs.sh
+
+Run the installation script:
+
+	sh static/larbs.sh
 
 ## What is LARBS?
 

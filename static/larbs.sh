@@ -182,13 +182,23 @@ installationloop() {
 putgitrepo() {
 	# Downloads a gitrepo $1 and places the files in $2 only overwriting conflicts
 	whiptail --infobox "Downloading and installing config files..." 7 60
-	[ -z "$3" ] && branch="master" || branch="$repobranch"
+	# Extract branch from URL if specified (format: url#branch)
+	case "$1" in
+		*#*)
+			giturl="${1%#*}"
+			branch="${1##*#}"
+			;;
+		*)
+			giturl="$1"
+			[ -z "$3" ] && branch="master" || branch="$repobranch"
+			;;
+	esac
 	dir=$(mktemp -d)
 	[ ! -d "$2" ] && mkdir -p "$2"
 	chown "$name":wheel "$dir" "$2"
 	sudo -u "$name" git -C "$repodir" clone --depth 1 \
 		--single-branch --no-tags -q --recursive -b "$branch" \
-		--recurse-submodules "$1" "$dir"
+		--recurse-submodules "$giturl" "$dir"
 	sudo -u "$name" cp -rfT "$dir" "$2"
 }
 
